@@ -1,0 +1,35 @@
+.input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #d3c9c9;
+    padding: 10px;
+}
+.input:focus{
+    outline: 0;
+}
+.input{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+input + label{
+    position: absolute;
+    top: 18px;
+    left: 10px;
+    color:black;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.5s ease;
+    font-size: medium;
+}
+input:focus + label,input:valid+label{
+    top:1px;
+    color: rgb(5, 137, 245);
+    background: white;
+    padding: 0 10px;
+    font-size: small;
+}
+.relative{
+    position: relative;
+}
