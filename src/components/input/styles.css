@@ -23,7 +23,7 @@ input + label{
     transition: all 0.5s ease;
     font-size: medium;
 }
-input:focus + label,input:valid+label{
+input:focus + label,.activeLabel{
     top:1px;
     color: rgb(5, 137, 245);
     background: white;
