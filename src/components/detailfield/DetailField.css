@@ -1,0 +1,15 @@
+.detail-field-container{
+    width:20%;
+    margin-bottom: 5%;
+    /* display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+.key-detail{
+    color: #a7a9b5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.key-detail-container{
+    margin-bottom: 3%;
+}

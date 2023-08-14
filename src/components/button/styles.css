@@ -1,0 +1,25 @@
+.button-submit{
+    background-color: #03aeee;
+    width:80%;
+    padding: 10px;
+    color: white;
+    box-shadow: 0px 3px 6px #B0E6FA;
+    border-radius: 3px;
+}
+
+.button-reset{
+    background-color: #ffffff;
+    width:80%;
+    padding: 10px;
+    box-shadow: 0px 3px 6px #B0E6FA;
+    border-radius: 3px;
+    color: #cacacc;
+}
+.btn-container-Create{
+    width: 12%;
+    margin-right: 1%;
+}
+.btn-container-Cancel{
+    width: 12%;
+    margin-right: 1%;
+}

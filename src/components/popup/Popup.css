@@ -1,0 +1,9 @@
+.popup-container{
+    display: flex;
+    flex-direction: column;
+    width: 25%
+    height:15%
+}
+.btton-container{
+    display: flex;
+}

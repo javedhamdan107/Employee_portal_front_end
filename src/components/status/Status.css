@@ -1,0 +1,14 @@
+.status-container{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    border-radius: 50px;
+    padding: 5px;
+}
+.active {
+    background-color: #d3f4be;
+}
+
+.inactive{
+    background-color: #ffbfbf;
+}

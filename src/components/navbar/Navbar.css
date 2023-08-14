@@ -1,0 +1,50 @@
+.nav{
+    background-color:white;
+    width: 15%;
+    
+}
+.logo{
+    width: 70%;
+    /* height: 6%; */
+    /* margin-top: 15px;
+    margin-left: 15%;
+    margin-right: 10%; */
+    margin-top: 10px;
+
+
+}
+
+.employee-list{
+    display: flex;
+    width: 90%;
+    margin-top: 15%;
+    margin-left: 10%;
+    background-color: #03aeee;
+    height: 6%;
+    border-radius:  999em 40px 40px 999em ;
+    align-items: center;
+}
+.icon-bg{
+    margin-left: 5%;
+    margin-right: 3%;
+    background-color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.employee-text{
+    font-size: small;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9fafe;
+    height: 8%;
+
+}

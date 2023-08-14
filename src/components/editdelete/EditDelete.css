@@ -1,0 +1,26 @@
+.icn-container{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+/* .btn-image{
+
+    background-color: #eaf9ff;
+    border: 0;
+    border-radius: 50px;
+    width:20%;
+    margin-right: 10px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    
+} */
+.bton-image{
+    background-color: #eaf9ff;
+    border: 0;
+    border-radius: 50px;
+    width:15%;
+    margin-right: 10px;
+
+}
