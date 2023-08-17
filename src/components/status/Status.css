@@ -5,10 +5,10 @@
     border-radius: 50px;
     padding: 5px;
 }
-.active {
+.Active {
     background-color: #d3f4be;
 }
 
-.inactive{
+.Inactive{
     background-color: #ffbfbf;
 }

@@ -1,19 +1,49 @@
 import './Employees.css';
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
 import Subheader from '../../components/subheader/Subheader';
 import Status from '../../components/status/Status';
-import employeeData from './Employee_data';
+// import employeeData from './Employee_data';
 import { useNavigate } from 'react-router-dom';
 import EditDelete from '../../components/editdelete/EditDelete';
+import { useDispatch, useSelector } from 'react-redux';
+import Popup from '../../components/popup/Popup';
+import { deleteEmployee } from '../../actions/employeeActions';
+import { useDeleteEmployeeMutation, useGetEmployeeListQuery } from './api';
+import employeeData from './Employee_data';
+
 // import Button from '../../components/button/Button';
 
 
 const Employees :FC = () =>{
+    
     const table_header=['Employee Name','Employee Id','Joining Date','Role','Status','Experience','Action']
-    const [isDelete,setIsDelete]=useState(false);
+    const [showDelete,setShowDelete]=useState(false);
+    const [deleteId,setDeleteId]=useState();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [deleteEmployee,{data:deleteData,isSuccess:deleteSuccess}]=useDeleteEmployeeMutation();
+
+    const {data} = useGetEmployeeListQuery();
+
+    let employeeData = []
+    data?.data.forEach((emp)=>{
+        const temp = {
+            name : emp.name,
+            id :emp.id,
+            joiningDate:emp.joining_date,
+            Role:emp.role,
+            status:emp.status,
+            Experience:emp.experience,
+
+
+
+        }
+        employeeData.push(temp);
+    })
+    console.log(data?.data);
+   
     const checkColumn = (emp,ele) => {
         
         if(ele!=='status')
@@ -26,12 +56,41 @@ const Employees :FC = () =>{
     const handleclick = () =>{
         navigate('/employees/create');
     }
-    const handleDeleteClick = ()=> setIsDelete(!isDelete);
+    const handleDeleteClick = (e, id)=> {
+        setShowDelete(!showDelete);
+        setDeleteId(id);
+        e.stopPropagation();
+    }
+    const handleCancelClick = (e)=> {
+        setShowDelete(false);
+        setDeleteId(null);
+        e.stopPropagation();
+    }
+
+    const handleConfirmClick = (e)=> {
+        setShowDelete(false);
+        deleteEmployee(deleteId);
+        
+        
+
+        e.stopPropagation();
+    }
+    const handleEditClick = (e,id) =>{
+        navigate(`/employees/edit/${id}`);
+        e.stopPropagation();
+    }
     
     
+    // useEffect(()=>{
+    //     if(deleteSuccess)
+    //     {
+    //         navigate('/employees');
+    //     }
+    // },[deleteSuccess]);
     return(
         <section className="employee-section">
             <Navbar/>
+        {showDelete&&<Popup onConfirmClickFunc ={handleConfirmClick} onCancelClickFunc ={handleCancelClick} />}
             
         <div className="employee-right">
             <Header/>
@@ -51,7 +110,7 @@ const Employees :FC = () =>{
                             employeeData.map((emp)=>{
                                 return <tr onClick= {()=>{navigate(`/employees/${emp.id}`)}} className='table-row'>
                             {Object.keys(emp).map((ele)=> checkColumn(emp,ele))}
-                                <td><EditDelete onclickfunc={handleDeleteClick}/></td>
+                                <td><EditDelete onDeleteclickfunc={(e) => handleDeleteClick(e, emp.id)} onEditclickfunc={(e) => handleEditClick(e, emp.id)}/></td>
                                 </tr>
                             })
                         }

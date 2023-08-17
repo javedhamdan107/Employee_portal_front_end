@@ -14,12 +14,12 @@ return(
       
         <label >{label}</label><br></br> 
         {/* <input className='input'type={type} value={value} onChange={onChange} /> */}
-        <select className='dropdown'>
+        <select className='dropdown' onChange={onChange}>
             <option >Choose {label}</option>
             {
                 
                 options.map((ele)=>{
-                    return <option>{ele}</option>
+                    return <option selected={value===ele}>{ele}</option>
                 })
             }
 
