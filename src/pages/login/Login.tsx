@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from "react";
 import Button from '../../components/button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useLoginMutation } from './api';
+import { useLazyGetEmployeeListQuery } from '../Employees/api';
 
 
 const Login: FC = () => {
@@ -11,6 +12,7 @@ const Login: FC = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const [login,{data,isSuccess}] = useLoginMutation();
+    const [getEmployees,{data:employeeData,isSuccess:getSuccess}]=useLazyGetEmployeeListQuery();
     const [showError, setShowError] = useState(false);
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
@@ -42,10 +44,21 @@ const Login: FC = () => {
         {
             console.log(data.data.token);
             localStorage.setItem("Auth", data.data.token);
-            navigate('/employees');
+            getEmployees();
+            
             
         }
     },[data,isSuccess])
+
+    useEffect(()=>{
+        if(employeeData&&getSuccess)
+        {
+        
+            localStorage.setItem('Role',(employeeData.data.find(obj=>obj.username===username)).role);
+            navigate('/employees');
+            
+        }
+    },[employeeData,getSuccess])
     return (
         <section className="login-section">
             <div className="login-left">

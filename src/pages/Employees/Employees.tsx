@@ -18,7 +18,7 @@ import employeeData from './Employee_data';
 
 const Employees :FC = () =>{
     
-    const table_header=['Employee Name','Employee Id','Joining Date','Role','Status','Experience','Action']
+    const table_header=['Employee Name','Employee Id','Joining Date','Role','Status','Experience']
     const [showDelete,setShowDelete]=useState(false);
     const [deleteId,setDeleteId]=useState();
     const navigate = useNavigate();
@@ -43,7 +43,10 @@ const Employees :FC = () =>{
         employeeData.push(temp);
     })
     console.log(data?.data);
-   
+    if(localStorage.getItem('Role')==='Admin'||localStorage.getItem('Role')==='HR')
+    {
+        table_header.push('Action');
+    }
     const checkColumn = (emp,ele) => {
         
         if(ele!=='status')
@@ -102,7 +105,10 @@ const Employees :FC = () =>{
                         <tr className='table-header'>
                             {table_header.map((ele)=>{
                                 return <th className='table-element'>{ele}</th>
-                            })}
+                            })
+                            
+                            }
+                            
                         </tr>
                     </thead>
                     <tbody className='table-row-container'>
@@ -110,7 +116,8 @@ const Employees :FC = () =>{
                             employeeData.map((emp)=>{
                                 return <tr onClick= {()=>{navigate(`/employees/${emp.id}`)}} className='table-row'>
                             {Object.keys(emp).map((ele)=> checkColumn(emp,ele))}
-                                <td><EditDelete onDeleteclickfunc={(e) => handleDeleteClick(e, emp.id)} onEditclickfunc={(e) => handleEditClick(e, emp.id)}/></td>
+                            {(localStorage.getItem('Role')==='Admin'||localStorage.getItem('Role')==='HR')&&(<td><EditDelete onDeleteclickfunc={(e) => handleDeleteClick(e, emp.id)} onEditclickfunc={(e) => handleEditClick(e, emp.id)}/></td>)}
+                                
                                 </tr>
                             })
                         }

@@ -76,21 +76,12 @@ const CreateEmployee = () =>{
         if (depart?.data && data?.data) {
             setDepartment((depart.data.find((dep) => dep.id === data?.data?.departmentId) || {}).name);
         }
-        //  depart?.data.forEach((depat)=>{
-        //     setDept((curr_dept)=>[...curr_dept,depat.name]);
-        //     if(depat.id===data?.data.departmentId)
-        //     {
-        //         setDepartment(depat.name)
-        //         console.log(department);
-        //     }
-        //  }
+
          
          
     },[depart, data]);
 
     useEffect(()=>{
-        // roleList?.data.data.forEach((rol)=>roles.push(rol));
-        // setRoles(roleList?.data.data)
         roleList?.data.data.forEach((rol)=>setRoles((curr_rol)=>[...curr_rol,rol]));
 
     },[roleList]);

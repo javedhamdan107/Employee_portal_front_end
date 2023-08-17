@@ -36,6 +36,6 @@ const employeeApi = baseApi.injectEndpoints({
     })
 });
 
-export const { useGetEmployeeListQuery,useDeleteEmployeeMutation} = employeeApi;
+export const { useGetEmployeeListQuery,useDeleteEmployeeMutation,useLazyGetEmployeeListQuery} = employeeApi;
 
 export default employeeApi;
