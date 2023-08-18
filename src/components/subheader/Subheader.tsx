@@ -13,6 +13,7 @@ const Subheader : React.FC <SubheaderPropTypes>  = ({headerText,icon,iconText,on
         <div className='heading-container'>
             <span className="heading">{headerText}</span>
         </div>
+        {(localStorage.getItem('Role')==='Admin'||localStorage.getItem('Role')==='HR')&&
         <div className='button-container'>
             
             {/* <img className='icon-button' alt={iconText} src={icon}/>   */}
@@ -22,7 +23,7 @@ const Subheader : React.FC <SubheaderPropTypes>  = ({headerText,icon,iconText,on
             <span className='icon-text'>{iconText}</span>
             </div>
             
-        </div>
+        </div>}
         
 
         </div>

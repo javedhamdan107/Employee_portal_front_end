@@ -1,27 +1,35 @@
-import './FormInput.css'
-type FormInputPropTypes={
-    value:string;
-    onChange :(e) => void;
-    label :string;
-    type:'text',
+/* eslint-disable comma-dangle */
+import React from "react";
+import "./FormInput.css";
+export type FormInputPropTypes = {
+  value: string;
+  onChange: (e) => void;
+  label: string;
+  type: "text" | "password";
+};
+const FormInput: React.FC<FormInputPropTypes> = ({
+  label,
+  value,
+  type,
+  onChange,
+}) => {
+  return (
+    <div className="input-container">
+      <div>
+        <label data-testid="input-label-test">{label}</label>
+        <br />
+      </div>
 
-}
-const FormInput :React.FC <FormInputPropTypes> = ({label,value,type,onChange})=>{
-
-
-return(
-    <div className='input-container'>
-      
-      {label !== 'Address Line 1' && label !== 'Address Line 2' && (
-    <div>
-      <label>{label}</label>
-      <br />
+      <input
+        className="input"
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={label}
+        data-testid="form-input-test"
+      />
     </div>
-  )}
-        <input className='input'type={type} value={value} onChange={onChange} placeholder={label} />
-
-    </div>
-)
-}
+  );
+};
 
 export default FormInput;
