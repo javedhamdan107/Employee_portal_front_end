@@ -60,7 +60,6 @@ const CreateEmployee = () => {
     setUserName(data?.data.username);
     setJoiningDate(data?.data.joining_date);
     setExperience(data?.data.experience);
-    // setDepartment(`${data?.data.departmentId}`);
     setRole(data?.data.role);
     setStatus(data?.data.status);
     setAddressLine1(data?.data.address.address_line_1);

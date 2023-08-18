@@ -8,7 +8,6 @@ import DetailField from "../../components/detailfield/DetailField";
 import { useGetEmployeeQuery } from "./api";
 const EmployeeDetails = () => {
   const { id } = useParams();
-  // const employee= employeeData.find((emp)=>emp.id===Number(id))
   const { data } = useGetEmployeeQuery(id);
   const navigate = useNavigate();
   const emp = data?.data;
