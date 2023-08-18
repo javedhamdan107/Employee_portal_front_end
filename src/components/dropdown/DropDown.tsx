@@ -1,5 +1,5 @@
 import './DropDown.css'
-type DropDownPropTypes={
+export type DropDownPropTypes={
     options:string[];
     value:string
     onChange :(e) => void;
@@ -12,10 +12,10 @@ const DropDown :React.FC <DropDownPropTypes> = ({options,label,value,onChange})=
 return(
     <div className='input-container'>
       
-        <label >{label}</label><br></br> 
+        <label data-testid = "label-test">{label}</label><br></br> 
         {/* <input className='input'type={type} value={value} onChange={onChange} /> */}
-        <select className='dropdown' onChange={onChange}>
-            <option >Choose {label}</option>
+        <select className='dropdown' onChange={onChange} data-testid = "select-test">
+            {/* <option >Choose {label}</option> */}
             {
                 
                 options.map((ele)=>{

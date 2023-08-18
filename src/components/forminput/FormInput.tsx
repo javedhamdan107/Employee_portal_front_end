@@ -1,5 +1,5 @@
 import './FormInput.css'
-type FormInputPropTypes={
+export type FormInputPropTypes={
     value:string;
     onChange :(e) => void;
     label :string;
@@ -14,11 +14,11 @@ return(
       
       
     <div>
-      <label>{label}</label>
+      <label data-testid ='input-label-test'>{label}</label>
       <br />
     </div>
 
-        <input className='input'type={type} value={value} onChange={onChange} placeholder={label} />
+        <input className='input'type={type} value={value} onChange={onChange} placeholder={label}  data-testid ='form-input-test' />
 
     </div>
 )

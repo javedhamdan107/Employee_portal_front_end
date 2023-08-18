@@ -6,8 +6,8 @@ type StatusPropTypes={
 
 const Status :React.FC <StatusPropTypes>= ({label}) =>{
     return (
-        <div className={`status-container ${label}`}>
-            <span>{label}</span>
+        <div className={`status-container ${label}`} data-testid = "status-test">
+            <span data-testid = 'status-component'>{label}</span>
 
         </div>
     )

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+<title>Create Employee</title>
+<link rel="stylesheet" href="create_employee.css">
+</head>
+<body>
+
+<main>
+    <section class="employee-section">
+        <div class="nav">
+            <div class="image">
+                <img class="logo" src="kv logo.png">
+            </div>
+           
+            <div class="employee-list">
+                <div class="icon-bg">
+                    <img class="icon" src="icon.svg">
+                </div>
+                <div>
+                    <span class="employee-text">Employee List</span>
+                </div>
+
+
+            </div>
+            
+        </div>
+        <div class="employee-right">
+        <div class="title">
+
+        </div>
+        <div class="create-employee">
+            <h1 class="heading">Create Employee</h1>
+        </div>
+        <div class="form-container">
+            <form class="text-container">
+                <div class="text-field-container">
+                    <div class="text-field">
+                        <label for="uname" class="name">Employee Name</label><br>
+                        <input class="input uname" type="text" id="uname" name="uname" placeholder="Employee Name"><br><br>
+                        <label for="uname" class="name">Role</label><br>
+                        <!-- <input class="input uname" type="text" id="uname" name="uname" placeholder="Choose Role"><br><br> -->
+                        <select name="role" id="cars" class="input uname">
+                            <option value="" disabled selected>Choose your role</option>
+                            <option value="volvo">Intern</option>
+                            <option value="saab">Full time</option>
+                          </select><br><br>
+                        <label for="uname" class="name">Address</label><br>
+                        <input class="input uname" type="text" id="uname" name="uname" placeholder="Address"><br><br>
+                        <input class="btn create" type="submit" value="Create">
+                        <input class="btn cancel" type="submit" value="Cancel">
+
+                        
+
+                    </div>
+                </div>
+                <div class="text-field-container">
+                    <div class="text-field">
+                        <label for="uname" class="name">Employee Id</label><br>
+                        <input class="input uname" type="text" id="uname" name="uname" placeholder="Employee Id"><br><br>
+                        <label for="uname" class="name">Status</label><br>
+                        <input class="input uname" type="text" id="uname" name="uname" placeholder="Status">
+                        
+
+                    </div>
+                </div>
+                <div class="text-field-container">
+                    <div class="text-field">
+                        <label for="uname" class="name">Joining Date</label><br>
+                        <input class="input uname" type="text" id="uname" name="uname" placeholder="Joining Date" onfocus="(this.type='date')"><br><br>
+                        <label for="uname" class="name">Experience</label><br>
+                        <input class="input uname" type="text" id="uname" name="uname" placeholder="Experience">
+                        
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
