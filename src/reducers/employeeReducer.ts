@@ -20,7 +20,7 @@ const initialState :Array<EmployeeType> = [{
     Role:'Full Stack',
     status:'active',
     Experience:5,
-    // address:'Address'
+   
 },
 {
     name :'John2',
@@ -29,7 +29,7 @@ const initialState :Array<EmployeeType> = [{
     Role:'Full Stack',
     status:'inactive',
     Experience:5,
-    // address:'Address'
+  
 },
 {
     name :'John3',
@@ -38,7 +38,7 @@ const initialState :Array<EmployeeType> = [{
     Role:'Full Stack',
     status:'active',
     Experience:5,
-    // address:'Address'
+   
 }]
 const employeeReducer =  createReducer(initialState,(builder) =>{
     builder.addCase(addEmployee,(state,action) => {
@@ -58,28 +58,6 @@ const employeeReducer =  createReducer(initialState,(builder) =>{
 
     })
 });
-// const employeeReducer = (state = initialState,action) => {
-//     switch(action.type){
-//         case 'EMPLOYEE:CREATE':
-//             {
-//                 const newState = [...state,action.payload.employee];
-//                 return newState
-//             }
-//             case 'EMPLOYEE:EDIT':
-//                 {
-//                     const tempState=state.filter((employee) => employee.id !== action.payload.employee.id)
-//                     debugger
-//                     const newState = [...tempState,action.payload.employee];
-//                     return newState
-//                 }
-//         case 'EMPLOYEE:DELETE':
-//             {
-//                 const newState = state.filter((employee) => employee.id !== action.payload.idToRemove);
-//                 return newState
-//             }
-//         default: 
-//             return state;
-//     }
-// }
+
 
 export default employeeReducer;
